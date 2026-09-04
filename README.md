@@ -12,7 +12,7 @@ A modern, vibrant, and interactive web application built to celebrate **National
 - 📸 **Interactive Memory Vault & Lightbox**: Photo gallery showcasing throwback moments and family getaways with category filters (*Reunions*, *Throwbacks*, *Adventures*, *Holidays*), custom photo/story submission, and full-screen lightbox preview.
 - 🏆 **Cousin Hall of Fame (Superlative Voting)**: Real-time interactive voting for funny cousin awards (*"Reunion Host Champion"*, *"Family Comedian"*, *"Grill Master"*, *"Gaming Champ"*).
 - 🤔 **"Which Cousin Are You?" Personality Quiz**: 4-question interactive quiz identifying your cousin archetype (*The Life of the Party*, *The Mastermind*, *The Adventurer*, *The Chill Cousin*) with instant confetti celebration.
-- 📅 **Reunion & Event Planner**: Event details card, potluck dish tracker, and instant RSVP submission form with dynamic attendee counter.
+- 📅 **Reunion & Event Planner**: Event schedule card, potluck dish tracker, and instant RSVP submission form with dynamic attendee counter.
 - 💌 **Cousin Shoutout Guestbook**: Live message board for cousins to post shoutouts, funny stories, and virtual hugs with avatar emojis.
 - 💾 **Persistent Browser Storage**: All RSVPs, added memories, voted awards, and guestbook posts persist seamlessly using `localStorage`.
 
@@ -28,18 +28,25 @@ A modern, vibrant, and interactive web application built to celebrate **National
 
 ---
 
-## 🚀 How to Enable GitHub Pages
+## 🌐 Deploying to Netlify
 
-To make your website live on the web:
+This repository includes a `netlify.toml` file configured for instant, zero-build deployment:
 
-1. Push all code to the `main` branch of this GitHub repository: `https://github.com/Powell561/cousinsday`.
-2. Go to your repository on GitHub: `https://github.com/Powell561/cousinsday`.
-3. Click on **Settings** in the top tab menu.
-4. Scroll down to **Pages** in the left sidebar (under "Code and automation").
-5. Under **Build and deployment -> Source**, select **Deploy from a branch**.
-6. Set the branch to **`main`** and folder to **`/(root)`**, then click **Save**.
-7. In 1–2 minutes, your website will be live at:
-   👉 **`https://powell561.github.io/cousinsday/`**
+### Method 1: Import GitHub Repository to Netlify (Recommended)
+1. Log in to [Netlify App](https://app.netlify.com/).
+2. Click **"Add new site"** -> **"Import an existing project"**.
+3. Select **GitHub** and authorize access to `Powell561/cousinsday`.
+4. Leave settings as default:
+   - **Branch to deploy**: `main`
+   - **Build command**: *(leave blank)*
+   - **Publish directory**: `.` (or root)
+5. Click **"Deploy cousinsday"**. Netlify will build and generate your custom URL (e.g., `https://cousinsday.netlify.app`) with automatic updates on every Git push!
+
+### Method 2: Netlify CLI
+Run the following commands in your terminal:
+```bash
+npx netlify-cli deploy --prod
+```
 
 ---
 
@@ -50,6 +57,7 @@ cousinsday/
 ├── index.html       # Main HTML5 page layout & components
 ├── styles.css       # Custom glassmorphism, scrollbars, and keyframe animations
 ├── script.js        # Dynamic features, state management, timer, quiz & modals
+├── netlify.toml     # Netlify deployment and security configuration
 └── README.md        # Documentation and deployment instructions
 ```
 
