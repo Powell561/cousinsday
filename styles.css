@@ -1,0 +1,59 @@
+/* Custom Styles for Cousins Day Website */
+
+/* Glassmorphism card styling */
+.glass-card {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-hover:hover {
+    transform: translateY(-4px);
+    border-color: rgba(249, 115, 22, 0.4);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(249, 115, 22, 0.1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #f97316;
+}
+
+/* Filter button active styles */
+.filter-btn.active {
+    background-color: #f97316 !important;
+    color: #0f172a !important;
+    font-weight: 700;
+}
+
+/* Pulse animation for confetti button */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Shimmer animation on vote bars */
+.vote-bar-fill {
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
