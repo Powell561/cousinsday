@@ -1,4 +1,4 @@
-// Cousins Day 2026 Main JavaScript Controller
+// Cousins Day 2026 Streamlined JavaScript Controller
 
 document.addEventListener('DOMContentLoaded', () => {
     initCountdown();
@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initConfetti();
     initPotluck();
     initRSVP();
-    initMemories();
-    initAwards();
     initGuestbook();
 });
 
@@ -83,7 +81,7 @@ function triggerCelebrationConfetti() {
             particleCount: 120,
             spread: 80,
             origin: { y: 0.6 },
-            colors: ['#facc15', '#a855f7', '#eab308', '#7e22ce', '#ffffff']
+            colors: ['#facc15', '#a855f7', '#eab308', '#25D366', '#ffffff']
         });
     }
 }
@@ -105,24 +103,27 @@ function showToast(message, icon = 'fa-circle-check') {
 }
 
 /* ==========================================
-   3. POTLUCK TRACKER
+   3. POTLUCK TRACKER (Clean Initial State)
    ========================================== */
-const defaultPotluckItems = [
-    { name: "Cousin Maya", category: "meats", item: "Smoked Turkey & Gravy" },
-    { name: "Cousin Sam", category: "sides", item: "Baked Macaroni & Cheese" },
-    { name: "Cousin Jessica", category: "desserts", item: "Sweet Potato Pie & Peach Cobbler" },
-    { name: "Cousin Chris", category: "drinks", item: "2 Coolers of Ice & Lemonade" },
-    { name: "Cousin Alex", category: "paper", item: "Plates, Napkins & Utensils Set" }
-];
-
 function initPotluck() {
-    let potluck = JSON.parse(localStorage.getItem('cousin_potluck_2026')) || defaultPotluckItems;
+    let potluck = JSON.parse(localStorage.getItem('cousin_potluck_2026')) || [];
     const listEl = document.getElementById('potluckList');
     const formEl = document.getElementById('potluckForm');
 
     function renderPotluck() {
         if (!listEl) return;
         listEl.innerHTML = '';
+
+        if (potluck.length === 0) {
+            listEl.innerHTML = `
+                <div class="text-center py-8 px-4 bg-purple-950/40 rounded-2xl border border-purple-800/60">
+                    <span class="text-3xl">🦃</span>
+                    <p class="text-purple-200 text-sm font-bold mt-2">No potluck items claimed yet!</p>
+                    <p class="text-purple-300 text-xs mt-1">Be the first to sign up for a dish or supply on the left.</p>
+                </div>
+            `;
+            return;
+        }
 
         const catIcons = {
             meats: '🍖',
@@ -185,10 +186,9 @@ function initRSVP() {
             const adults = document.getElementById('rsvpAdults').value;
             const kids = document.getElementById('rsvpKids').value;
             const phone = document.getElementById('rsvpPhone').value;
-            const shirt = document.getElementById('rsvpShirtInterest').value;
             const note = document.getElementById('rsvpNote').value;
 
-            const entry = { name, branch, adults, kids, phone, shirt, note, date: new Date().toISOString() };
+            const entry = { name, branch, adults, kids, phone, note, date: new Date().toISOString() };
             rsvps.push(entry);
             localStorage.setItem('cousin_rsvps_2026', JSON.stringify(rsvps));
 
@@ -200,254 +200,28 @@ function initRSVP() {
 }
 
 /* ==========================================
-   5. MEMORY VAULT
+   5. GUESTBOOK SHOUTOUTS (Clean Initial State)
    ========================================== */
-const defaultMemories = [
-    {
-        id: 1,
-        title: "Beach Day at Carlin Park",
-        author: "Cousin Maya",
-        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
-        story: "Fun in the sun! Can't wait to be back beachfront for Thanksgiving 2026.",
-        likes: 24,
-        date: "2025"
-    },
-    {
-        id: 2,
-        title: "Family Reunion Group Photo",
-        author: "Cousin Sam",
-        image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80",
-        story: "50+ family members across generations showing up strong!",
-        likes: 38,
-        date: "2025"
-    },
-    {
-        id: 3,
-        title: "Cookout & Bounce House Fun",
-        author: "Cousin Alex",
-        image: "https://images.unsplash.com/photo-1539635278303-d4002c07eae3?auto=format&fit=crop&w=800&q=80",
-        story: "Laughter, music, and the kids bouncing all day long.",
-        likes: 19,
-        date: "2025"
-    }
-];
-
-function initMemories() {
-    let memories = JSON.parse(localStorage.getItem('cousin_memories_2026')) || defaultMemories;
-    const memoryGrid = document.getElementById('memoryGrid');
-
-    function renderMemories() {
-        if (!memoryGrid) return;
-        memoryGrid.innerHTML = '';
-
-        memories.forEach(m => {
-            const card = document.createElement('div');
-            card.className = "bg-purple-950/80 border border-purple-800/80 rounded-2xl overflow-hidden shadow-lg hover:border-gold-400 transition-all flex flex-col group";
-            card.innerHTML = `
-                <div class="relative h-48 overflow-hidden bg-slate-950 cursor-pointer" onclick="openLightbox('${m.image.replace(/'/g, "\\'")}', '${m.title.replace(/'/g, "\\'")}', '${m.story.replace(/'/g, "\\'")}')">
-                    <img src="${m.image}" alt="${m.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
-                </div>
-                <div class="p-5 flex-1 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between text-xs text-purple-300 mb-1">
-                            <span class="font-extrabold text-gold-400">${m.author}</span>
-                            <span>${m.date}</span>
-                        </div>
-                        <h3 class="font-heading text-2xl text-white group-hover:text-gold-400 transition-colors">${m.title}</h3>
-                        <p class="text-slate-300 text-xs mt-1 leading-relaxed">${m.story}</p>
-                    </div>
-                </div>
-            `;
-            memoryGrid.appendChild(card);
-        });
-    }
-
-    const addMemoryBtn = document.getElementById('addMemoryBtn');
-    const memoryModal = document.getElementById('memoryModal');
-    const closeMemoryModal = document.getElementById('closeMemoryModal');
-    const memoryForm = document.getElementById('memoryForm');
-
-    if (addMemoryBtn && memoryModal && closeMemoryModal && memoryForm) {
-        addMemoryBtn.addEventListener('click', () => memoryModal.classList.remove('hidden'));
-        closeMemoryModal.addEventListener('click', () => memoryModal.classList.add('hidden'));
-
-        memoryForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const title = document.getElementById('memTitle').value;
-            const userImg = document.getElementById('memImage').value;
-            const story = document.getElementById('memStory').value;
-
-            const fallback = "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80";
-            memories.unshift({
-                id: Date.now(),
-                title,
-                author: "You (Cousin)",
-                image: userImg.trim() || fallback,
-                story,
-                likes: 1,
-                date: "2026"
-            });
-
-            localStorage.setItem('cousin_memories_2026', JSON.stringify(memories));
-            renderMemories();
-            memoryModal.classList.add('hidden');
-            memoryForm.reset();
-            showToast("Memory photo saved!", "fa-circle-check");
-            triggerCelebrationConfetti();
-        });
-    }
-
-    window.openLightbox = function(image, title, desc) {
-        const modal = document.getElementById('lightboxModal');
-        const imgEl = document.getElementById('lightboxImg');
-        const titleEl = document.getElementById('lightboxTitle');
-        const descEl = document.getElementById('lightboxDesc');
-
-        if (imgEl && titleEl && descEl && modal) {
-            imgEl.src = image;
-            titleEl.textContent = title;
-            descEl.textContent = desc;
-            modal.classList.remove('hidden');
-        }
-    };
-
-    const closeLightboxBtn = document.getElementById('closeLightboxBtn');
-    const lightboxModal = document.getElementById('lightboxModal');
-    if (closeLightboxBtn && lightboxModal) {
-        closeLightboxBtn.addEventListener('click', () => lightboxModal.classList.add('hidden'));
-        lightboxModal.addEventListener('click', (e) => {
-            if (e.target === lightboxModal) lightboxModal.classList.add('hidden');
-        });
-    }
-
-    renderMemories();
-}
-
-/* ==========================================
-   6. SUPERLATIVE AWARDS
-   ========================================== */
-const defaultAwards = [
-    {
-        id: "bougie",
-        title: "The Bougie Cousin Award 👑",
-        desc: "Who arrives in the best outfit with top tier style?",
-        options: [
-            { name: "Cousin Maya", votes: 19 },
-            { name: "Cousin Jessica", votes: 12 },
-            { name: "Cousin Taylor", votes: 7 }
-        ]
-    },
-    {
-        id: "fafo",
-        title: "The FAFO Cousin Award ⚡",
-        desc: "Who has zero fear and keeps everyone laughing?",
-        options: [
-            { name: "Cousin Chris", votes: 24 },
-            { name: "Cousin Alex", votes: 11 },
-            { name: "Cousin Jordan", votes: 8 }
-        ]
-    },
-    {
-        id: "faith",
-        title: "The Faithfilled Cousin Award 🙏",
-        desc: "Who brings the blessings, grace, and encouraging prayers?",
-        options: [
-            { name: "Cousin Sam", votes: 22 },
-            { name: "Cousin David", votes: 14 },
-            { name: "Cousin Maya", votes: 9 }
-        ]
-    }
-];
-
-function initAwards() {
-    let awards = JSON.parse(localStorage.getItem('cousin_awards_2026')) || defaultAwards;
-    const grid = document.getElementById('awardsGrid');
-
-    function renderAwards() {
-        if (!grid) return;
-        grid.innerHTML = '';
-
-        awards.forEach(award => {
-            const totalVotes = award.options.reduce((acc, curr) => acc + curr.votes, 0);
-
-            const card = document.createElement('div');
-            card.className = "bg-purple-950/80 border border-purple-800/80 rounded-2xl p-6 shadow-xl flex flex-col justify-between";
-            
-            let optionsHTML = '';
-            award.options.forEach((opt, idx) => {
-                const percent = totalVotes > 0 ? Math.round((opt.votes / totalVotes) * 100) : 0;
-                optionsHTML += `
-                    <div class="space-y-1">
-                        <div class="flex items-center justify-between text-xs font-bold text-purple-200">
-                            <span>${opt.name}</span>
-                            <span class="text-gold-400">${opt.votes} votes (${percent}%)</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <div class="flex-1 h-2.5 rounded-full bg-slate-950 overflow-hidden border border-purple-800">
-                                <div class="h-full bg-gradient-to-r from-gold-400 to-amber-500 vote-bar-fill" style="width: ${percent}%"></div>
-                            </div>
-                            <button onclick="voteAward('${award.id}', ${idx})" class="px-3 py-1 rounded-lg bg-gold-400 hover:bg-gold-500 text-slate-950 text-xs font-extrabold transition-all">
-                                Vote
-                            </button>
-                        </div>
-                    </div>
-                `;
-            });
-
-            card.innerHTML = `
-                <div>
-                    <h3 class="font-heading text-2xl text-white mb-1">${award.title}</h3>
-                    <p class="text-purple-300 text-xs mb-4">${award.desc}</p>
-                    <div class="space-y-3">
-                        ${optionsHTML}
-                    </div>
-                </div>
-            `;
-            grid.appendChild(card);
-        });
-    }
-
-    window.voteAward = function(awardId, optIdx) {
-        const targetAward = awards.find(a => a.id === awardId);
-        if (targetAward && targetAward.options[optIdx]) {
-            targetAward.options[optIdx].votes += 1;
-            localStorage.setItem('cousin_awards_2026', JSON.stringify(awards));
-            renderAwards();
-            showToast(`Vote cast for ${targetAward.options[optIdx].name}! 🏆`, 'fa-trophy');
-        }
-    };
-
-    renderAwards();
-}
-
-/* ==========================================
-   7. GUESTBOOK SHOUTOUTS
-   ========================================== */
-const defaultShoutouts = [
-    {
-        id: 1,
-        author: "Cousin Jordan",
-        emoji: "🥳",
-        message: "Can't wait for Thanksgiving at Carlin Park! See everyone at the Laurie Schobelock Pavilion!",
-        time: "Recently"
-    },
-    {
-        id: 2,
-        author: "Cousin Taylor",
-        emoji: "👑",
-        message: "Got my Bougie Cousin shirt ordered! Calling 561-660-9010 today!",
-        time: "Recently"
-    }
-];
-
 function initGuestbook() {
-    let shoutouts = JSON.parse(localStorage.getItem('cousin_shoutouts_2026')) || defaultShoutouts;
+    let shoutouts = JSON.parse(localStorage.getItem('cousin_shoutouts_2026')) || [];
     const feed = document.getElementById('guestbookFeed');
     const form = document.getElementById('guestbookForm');
 
     function renderShoutouts() {
         if (!feed) return;
         feed.innerHTML = '';
+
+        if (shoutouts.length === 0) {
+            feed.innerHTML = `
+                <div class="col-span-full text-center py-10 px-4 bg-purple-950/40 rounded-3xl border border-purple-800/60 max-w-xl mx-auto">
+                    <span class="text-4xl">💌</span>
+                    <h4 class="font-heading text-2xl text-white mt-2">No Shoutouts Posted Yet!</h4>
+                    <p class="text-purple-300 text-xs mt-1">Be the first family member to leave a message above.</p>
+                </div>
+            `;
+            return;
+        }
+
         shoutouts.forEach(s => {
             const card = document.createElement('div');
             card.className = "bg-purple-950/80 border border-purple-800/80 rounded-2xl p-5 shadow-lg flex items-start gap-4";
