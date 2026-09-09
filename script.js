@@ -1,4 +1,4 @@
-// Cousins Day 2026 Streamlined JavaScript Controller
+// Cousins Day 2026 Main JavaScript Controller
 
 document.addEventListener('DOMContentLoaded', () => {
     initCountdown();
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================
-   1. THANKSGIVING DAY 2026 COUNTDOWN TIMER
+   1. COUSINS DAY 2026 COUNTDOWN TIMER
    ========================================== */
 function initCountdown() {
     const daysEl = document.getElementById('days');
@@ -117,9 +117,9 @@ function initPotluck() {
         if (potluck.length === 0) {
             listEl.innerHTML = `
                 <div class="text-center py-8 px-4 bg-purple-950/40 rounded-2xl border border-purple-800/60">
-                    <span class="text-3xl">🦃</span>
+                    <span class="text-3xl">🥧</span>
                     <p class="text-purple-200 text-sm font-bold mt-2">No potluck items claimed yet!</p>
-                    <p class="text-purple-300 text-xs mt-1">Be the first to sign up for a dish or supply on the left.</p>
+                    <p class="text-purple-300 text-xs mt-1">Be the first cousin to sign up for a dish or supply on the left.</p>
                 </div>
             `;
             return;
@@ -163,7 +163,7 @@ function initPotluck() {
             localStorage.setItem('cousin_potluck_2026', JSON.stringify(potluck));
             renderPotluck();
             formEl.reset();
-            showToast(`Added "${item}" to the Thanksgiving Potluck! 🦃`, 'fa-utensils');
+            showToast(`Added "${item}" to the Cousins Day Potluck List! 🥧`, 'fa-utensils');
             triggerCelebrationConfetti();
         });
     }
@@ -193,7 +193,7 @@ function initRSVP() {
             localStorage.setItem('cousin_rsvps_2026', JSON.stringify(rsvps));
 
             rsvpForm.reset();
-            showToast(`RSVP Confirmed for ${name}! See you on Thanksgiving! 🦃👑`, 'fa-circle-check');
+            showToast(`RSVP Confirmed for ${name}! See you on Cousins Day! 👑`, 'fa-circle-check');
             triggerCelebrationConfetti();
         });
     }
@@ -216,7 +216,7 @@ function initGuestbook() {
                 <div class="col-span-full text-center py-10 px-4 bg-purple-950/40 rounded-3xl border border-purple-800/60 max-w-xl mx-auto">
                     <span class="text-4xl">💌</span>
                     <h4 class="font-heading text-2xl text-white mt-2">No Shoutouts Posted Yet!</h4>
-                    <p class="text-purple-300 text-xs mt-1">Be the first family member to leave a message above.</p>
+                    <p class="text-purple-300 text-xs mt-1">Be the first cousin to leave a message above.</p>
                 </div>
             `;
             return;
