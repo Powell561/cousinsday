@@ -66,13 +66,13 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
-                <a href="#" class="flex items-center gap-3 group">
+                <a href="#hero" class="flex items-center gap-3 group">
                     <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-purple-700 via-purple-600 to-amber-400 flex items-center justify-center text-slate-950 font-bold text-2xl shadow-lg shadow-purple-900/50 group-hover:scale-105 transition-transform border border-amber-400/40">
                         👑
                     </div>
                     <div>
                         <span class="font-heading text-3xl tracking-wider bg-gradient-to-r from-amber-300 via-gold-400 to-amber-500 bg-clip-text text-transparent block leading-none">
-                            COUSINS<span class="text-white">DAY</span> 2026
+                            COUSINS <span class="text-white">DAY</span> 2026
                         </span>
                         <span class="text-[11px] text-purple-300 font-semibold uppercase tracking-widest block mt-0.5">Extended Family & Friends Welcome!</span>
                     </div>
@@ -80,9 +80,9 @@
 
                 <!-- Desktop Nav -->
                 <nav class="hidden lg:flex items-center space-x-7 text-sm font-semibold text-purple-200">
-                    <a href="#countdown" class="hover:text-gold-400 transition-colors">Countdown</a>
-                    <a href="#venue" class="hover:text-gold-400 transition-colors">Carlin Park</a>
-                    <a href="#potluck" class="hover:text-gold-400 transition-colors">Potluck</a>
+                    <a href="#hero" class="hover:text-gold-400 transition-colors">Countdown</a>
+                    <a href="#venue" class="hover:text-gold-400 transition-colors">Location</a>
+                    <a href="#potluck" class="hover:text-gold-400 transition-colors">Menu</a>
                     <a href="#rsvp" class="hover:text-gold-400 transition-colors">RSVP</a>
                     <a href="#donate" class="hover:text-cashapp-500 transition-colors text-cashapp-500 font-bold">Donate</a>
                     <a href="#guestbook" class="hover:text-gold-400 transition-colors">Shoutouts</a>
@@ -108,9 +108,9 @@
 
         <!-- Mobile Navigation Menu -->
         <div id="mobileMenu" class="hidden lg:hidden border-b border-purple-800 bg-royal-950 px-4 pt-3 pb-6 space-y-3">
-            <a href="#countdown" class="block py-2 text-purple-200 hover:text-gold-400 font-medium">Countdown</a>
-            <a href="#venue" class="block py-2 text-purple-200 hover:text-gold-400 font-medium">Carlin Park Venue</a>
-            <a href="#potluck" class="block py-2 text-purple-200 hover:text-gold-400 font-medium">Potluck Sign-Up</a>
+            <a href="#hero" class="block py-2 text-purple-200 hover:text-gold-400 font-medium">Countdown</a>
+            <a href="#venue" class="block py-2 text-purple-200 hover:text-gold-400 font-medium">Location (Carlin Park)</a>
+            <a href="#potluck" class="block py-2 text-purple-200 hover:text-gold-400 font-medium">Menu (Potluck Sign-Up)</a>
             <a href="#rsvp" class="block py-2 text-purple-200 hover:text-gold-400 font-medium">RSVP</a>
             <a href="#donate" class="block py-2 text-cashapp-500 font-bold">Donate via Cash App ($MyCousinsDay)</a>
             <a href="#guestbook" class="block py-2 text-purple-200 hover:text-gold-400 font-medium">Shoutouts</a>
@@ -126,10 +126,10 @@
 
     <main class="relative z-10">
         <!-- Hero Section -->
-        <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-gradient-to-b from-royal-950 via-purple-950/80 to-slate-950">
+        <section id="hero" class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-gradient-to-b from-royal-950 via-purple-950/80 to-slate-950">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <!-- Badge -->
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-400/10 border border-gold-400/30 text-gold-400 text-sm font-extrabold mb-6 animate-pulse shadow-md">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-400/10 border border-gold-400/30 text-gold-400 text-sm font-extrabold mb-4 animate-pulse shadow-md">
                     <span>👑</span>
                     COUSINS DAY 2026 • THURSDAY, NOVEMBER 26, 2026
                 </div>
@@ -154,8 +154,21 @@
                     <span><strong>Laurie Schobelock Pavilion at Carlin Park</strong><br>400 S. Ocean Blvd (A1A), Jupiter, FL 33477</span>
                 </div>
 
+                <!-- Highlighted Activities Feature Badges -->
+                <div class="mt-5 flex flex-wrap justify-center gap-3 max-w-xl mx-auto">
+                    <span class="px-3.5 py-1.5 rounded-xl bg-purple-900/70 border border-purple-700 text-gold-300 text-xs font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-gamepad text-gold-400"></i> Fun Games
+                    </span>
+                    <span class="px-3.5 py-1.5 rounded-xl bg-purple-900/70 border border-purple-700 text-gold-300 text-xs font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-music text-gold-400"></i> Music & Vibes
+                    </span>
+                    <span class="px-3.5 py-1.5 rounded-xl bg-purple-900/70 border border-purple-700 text-gold-300 text-xs font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-bounce-house text-gold-400"></i> Bounce House for Kids
+                    </span>
+                </div>
+
                 <p class="mt-4 text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                    Join us for Annual Cousins Day 2026! Falling on Thanksgiving Day this year, we are welcoming cousins, extended families, and close friends together at Carlin Park for beachfront fun, delicious food, games, and memories.
+                    Join us for Annual Cousins Day 2026! Falling on Thanksgiving Day this year, we are welcoming cousins, extended families, and close friends together at Carlin Park for beachfront fun, music, games, a bounce house, food, and memories.
                 </p>
 
                 <!-- Action Buttons -->
@@ -206,7 +219,7 @@
                     
                     <!-- Venue Details -->
                     <div class="lg:col-span-6 space-y-6">
-                        <span class="text-gold-400 text-sm font-extrabold uppercase tracking-widest">2026 Venue & Address</span>
+                        <span class="text-gold-400 text-sm font-extrabold uppercase tracking-widest">2026 Location & Address</span>
                         <h2 class="font-heading text-4xl sm:text-5xl text-white tracking-wide leading-tight">
                             LAURIE SCHOBELOCK PAVILION AT CARLIN PARK 🏖️
                         </h2>
@@ -224,28 +237,29 @@
                         </div>
 
                         <p class="text-slate-300 text-base leading-relaxed">
-                            We are gathering beachfront at the Laurie Schobelock Pavilion in Carlin Park for Cousins Day 2026! Cousins, extended family members, and friends are all invited to enjoy covered picnic seating, ocean breeze, charcoal grills, green space, playgrounds, restrooms, and parking.
+                            We are gathering beachfront at the Laurie Schobelock Pavilion in Carlin Park for Cousins Day 2026! Enjoy music, games, bounce house for the kids, covered picnic seating, ocean breeze, charcoal grills, green space, restrooms, and parking.
                         </p>
 
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                            <div class="bg-purple-950/70 border border-purple-800/80 rounded-2xl p-4 flex items-start gap-3">
-                                <div class="w-10 h-10 rounded-xl bg-gold-400 text-slate-950 flex items-center justify-center font-bold text-lg flex-shrink-0">
-                                    <i class="fa-solid fa-umbrella-beach"></i>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                            <div class="bg-purple-950/70 border border-purple-800/80 rounded-2xl p-3 text-center">
+                                <div class="w-9 h-9 mx-auto rounded-xl bg-gold-400 text-slate-950 flex items-center justify-center font-bold text-base mb-1">
+                                    <i class="fa-solid fa-gamepad"></i>
                                 </div>
-                                <div>
-                                    <h4 class="font-bold text-white text-sm">Beachside Setting</h4>
-                                    <p class="text-purple-200 text-xs mt-0.5">Ocean access & scenic pavilion</p>
-                                </div>
+                                <h4 class="font-bold text-white text-xs">Family Games</h4>
                             </div>
 
-                            <div class="bg-purple-950/70 border border-purple-800/80 rounded-2xl p-4 flex items-start gap-3">
-                                <div class="w-10 h-10 rounded-xl bg-gold-400 text-slate-950 flex items-center justify-center font-bold text-lg flex-shrink-0">
-                                    <i class="fa-solid fa-users"></i>
+                            <div class="bg-purple-950/70 border border-purple-800/80 rounded-2xl p-3 text-center">
+                                <div class="w-9 h-9 mx-auto rounded-xl bg-gold-400 text-slate-950 flex items-center justify-center font-bold text-base mb-1">
+                                    <i class="fa-solid fa-music"></i>
                                 </div>
-                                <div>
-                                    <h4 class="font-bold text-white text-sm">All Welcome!</h4>
-                                    <p class="text-purple-200 text-xs mt-0.5">Cousins, extended family & friends</p>
+                                <h4 class="font-bold text-white text-xs">Music & Vibes</h4>
+                            </div>
+
+                            <div class="bg-purple-950/70 border border-purple-800/80 rounded-2xl p-3 text-center">
+                                <div class="w-9 h-9 mx-auto rounded-xl bg-gold-400 text-slate-950 flex items-center justify-center font-bold text-base mb-1">
+                                    <i class="fa-solid fa-child-reaching"></i>
                                 </div>
+                                <h4 class="font-bold text-white text-xs">Bounce House</h4>
                             </div>
                         </div>
 
@@ -275,68 +289,13 @@
             </div>
         </section>
 
-        <!-- CASH APP DONATION / CONTRIBUTION SECTION -->
-        <section id="donate" class="py-16 md:py-24 bg-gradient-to-b from-slate-950 via-purple-950/80 to-slate-950 relative">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-gradient-to-br from-purple-950 via-slate-900 to-purple-950 border-2 border-cashapp-500 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden text-center">
-                    
-                    <div class="w-16 h-16 mx-auto rounded-2xl bg-cashapp-500 flex items-center justify-center text-slate-950 text-3xl font-extrabold shadow-lg shadow-cashapp-500/30 mb-4">
-                        <i class="fa-solid fa-dollar-sign"></i>
-                    </div>
-
-                    <span class="text-cashapp-500 text-xs sm:text-sm font-extrabold uppercase tracking-widest">Support the Celebration</span>
-                    <h2 class="font-heading text-4xl sm:text-6xl text-white tracking-wide mt-1">COUSINS DAY CASH APP DONATIONS 💚</h2>
-                    
-                    <p class="text-purple-200 text-sm sm:text-base mt-3 max-w-xl mx-auto leading-relaxed">
-                        Want to help support Cousins Day 2026? Monetary contributions toward the bounce house, park pavilion reservation, food, drinks, and event supplies are warmly appreciated!
-                    </p>
-
-                    <!-- Cash App Card Details -->
-                    <div class="mt-8 p-6 rounded-2xl bg-slate-950/90 border border-purple-700/60 max-w-lg mx-auto shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
-                        
-                        <!-- QR Code -->
-                        <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 flex-shrink-0">
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://cash.app/$MyCousinsDay" alt="Cash App QR Code $MyCousinsDay" class="w-32 h-32 object-contain rounded-lg">
-                            <span class="text-[10px] text-slate-600 font-bold block text-center mt-1">Scan with Phone Camera</span>
-                        </div>
-
-                        <!-- Info & CTAs -->
-                        <div class="text-center sm:text-left space-y-3 flex-1">
-                            <div>
-                                <span class="text-xs uppercase tracking-wider text-purple-300 font-semibold block">Cash App Account</span>
-                                <h3 class="font-heading text-3xl text-white">Cousins Day</h3>
-                                <div class="inline-flex items-center gap-2 font-mono font-extrabold text-xl text-cashapp-500 mt-0.5">
-                                    $MyCousinsDay
-                                </div>
-                            </div>
-
-                            <div class="flex flex-col sm:flex-row gap-2 pt-1">
-                                <a href="https://cash.app/$MyCousinsDay" target="_blank" rel="noopener" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-cashapp-500 hover:bg-cashapp-600 text-slate-950 font-extrabold text-xs transition-all shadow-md inline-flex items-center justify-center gap-1.5">
-                                    <i class="fa-solid fa-mobile-screen-button"></i> Open Cash App
-                                </a>
-                                <button onclick="copyCashtag()" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-purple-900 hover:bg-purple-800 text-purple-200 font-bold text-xs transition-all border border-purple-700 inline-flex items-center justify-center gap-1.5">
-                                    <i class="fa-regular fa-copy"></i> Copy $Cashtag
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="mt-6 text-xs text-purple-300">
-                        ❤️ Thank you to everyone helping make Cousins Day 2026 unforgettable!
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Thanksgiving Potluck & Supplies Tracker -->
+        <!-- Menu / Thanksgiving Potluck & Supplies Tracker -->
         <section id="potluck" class="py-16 md:py-24 bg-gradient-to-b from-slate-950 via-purple-950/50 to-slate-950">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <span class="text-gold-400 text-sm font-extrabold uppercase tracking-widest">Cousins Day Feast</span>
+                    <span class="text-gold-400 text-sm font-extrabold uppercase tracking-widest">Cousins Day Menu</span>
                     <h2 class="font-heading text-4xl sm:text-6xl text-white tracking-wide mt-1">
-                        POTLUCK & SUPPLIES SIGN-UP 🥧
+                        POTLUCK & SUPPLIES MENU SIGN-UP 🥧
                     </h2>
                     <p class="text-slate-300 text-sm sm:text-base mt-2">
                         Sign up for a dish, dessert, or supply you're bringing! Cousins, extended family, and friends are all invited to contribute and feast together.
@@ -373,14 +332,14 @@
                             </div>
 
                             <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-gold-400 via-amber-400 to-yellow-500 hover:from-gold-500 hover:to-amber-500 text-slate-950 font-extrabold shadow-lg shadow-gold-400/20 transition-all">
-                                Add to Potluck List ✨
+                                Add to Menu List ✨
                             </button>
                         </form>
                     </div>
 
                     <!-- Potluck Items Tracker Feed -->
                     <div class="lg:col-span-7 bg-slate-950 border border-purple-900/80 rounded-3xl p-6 sm:p-8 shadow-xl">
-                        <h3 class="font-heading text-2xl text-white mb-4">Confirmed Items 📋</h3>
+                        <h3 class="font-heading text-2xl text-white mb-4">Confirmed Menu Items 📋</h3>
                         <div id="potluckList" class="space-y-3 max-h-[420px] overflow-y-auto pr-2">
                             <!-- Dynamic items inserted via JS -->
                         </div>
@@ -452,6 +411,61 @@
             </div>
         </section>
 
+        <!-- CASH APP DONATION / CONTRIBUTION SECTION (Positioned Directly Below RSVP) -->
+        <section id="donate" class="py-16 md:py-24 bg-gradient-to-b from-slate-950 via-purple-950/80 to-slate-950 relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-gradient-to-br from-purple-950 via-slate-900 to-purple-950 border-2 border-cashapp-500 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden text-center">
+                    
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-cashapp-500 flex items-center justify-center text-slate-950 text-3xl font-extrabold shadow-lg shadow-cashapp-500/30 mb-4">
+                        <i class="fa-solid fa-dollar-sign"></i>
+                    </div>
+
+                    <span class="text-cashapp-500 text-xs sm:text-sm font-extrabold uppercase tracking-widest">Support the Celebration</span>
+                    <h2 class="font-heading text-4xl sm:text-6xl text-white tracking-wide mt-1">COUSINS DAY CASH APP DONATIONS 💚</h2>
+                    
+                    <p class="text-purple-200 text-sm sm:text-base mt-3 max-w-xl mx-auto leading-relaxed">
+                        Want to help support Cousins Day 2026? Monetary contributions toward the bounce house, park pavilion reservation, food, drinks, and event supplies are warmly appreciated!
+                    </p>
+
+                    <!-- Cash App Card Details -->
+                    <div class="mt-8 p-6 rounded-2xl bg-slate-950/90 border border-purple-700/60 max-w-lg mx-auto shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
+                        
+                        <!-- QR Code -->
+                        <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 flex-shrink-0">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://cash.app/$MyCousinsDay" alt="Cash App QR Code $MyCousinsDay" class="w-32 h-32 object-contain rounded-lg">
+                            <span class="text-[10px] text-slate-600 font-bold block text-center mt-1">Scan with Phone Camera</span>
+                        </div>
+
+                        <!-- Info & CTAs -->
+                        <div class="text-center sm:text-left space-y-3 flex-1">
+                            <div>
+                                <span class="text-xs uppercase tracking-wider text-purple-300 font-semibold block">Cash App Account</span>
+                                <h3 class="font-heading text-3xl text-white">Cousins Day</h3>
+                                <div class="inline-flex items-center gap-2 font-mono font-extrabold text-xl text-cashapp-500 mt-0.5">
+                                    $MyCousinsDay
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row gap-2 pt-1">
+                                <a href="https://cash.app/$MyCousinsDay" target="_blank" rel="noopener" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-cashapp-500 hover:bg-cashapp-600 text-slate-950 font-extrabold text-xs transition-all shadow-md inline-flex items-center justify-center gap-1.5">
+                                    <i class="fa-solid fa-mobile-screen-button"></i> Open Cash App
+                                </a>
+                                <button onclick="copyCashtag()" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-purple-900 hover:bg-purple-800 text-purple-200 font-bold text-xs transition-all border border-purple-700 inline-flex items-center justify-center gap-1.5">
+                                    <i class="fa-regular fa-copy"></i> Copy $Cashtag
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mt-6 text-xs text-purple-300">
+                        ❤️ Thank you to everyone helping make Cousins Day 2026 unforgettable!
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
         <!-- Cousin Shoutouts -->
         <section id="guestbook" class="py-16 md:py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -505,7 +519,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
             <div>
                 <div class="font-heading text-2xl text-white">
-                    COUSINS<span class="text-gold-400">DAY</span> 2026
+                    COUSINS <span class="text-gold-400">DAY</span> 2026
                 </div>
                 <p class="text-purple-300 text-xs mt-1">Laurie Schobelock Pavilion at Carlin Park • Extended Family & Friends Welcome!</p>
                 <p class="text-slate-400 text-xs mt-0.5">400 S. Ocean Blvd (A1A), Jupiter, FL 33477 • Cash App: <strong class="text-cashapp-500">$MyCousinsDay</strong></p>
@@ -518,7 +532,7 @@
                 <a href="https://chat.whatsapp.com/GFOzOsC7w42E0Ed4wh5RHK" target="_blank" rel="noopener" class="hover:text-whatsapp-500 transition-colors text-whatsapp-500">
                     <i class="fa-brands fa-whatsapp text-lg"></i> Cousins WhatsApp
                 </a>
-                <a href="#countdown" class="hover:text-gold-400 transition-colors">Back to top ↑</a>
+                <a href="#hero" class="hover:text-gold-400 transition-colors">Back to top ↑</a>
             </div>
         </div>
     </footer>
