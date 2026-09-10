@@ -362,7 +362,7 @@
                     <form id="rsvpForm" class="space-y-4">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-purple-300 mb-1" for="rsvpName">Your Full Name</label>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-purple-300 mb-1" for="rsvpName">Primary Attendee Full Name (Adult 1)</label>
                                 <input type="text" id="rsvpName" required placeholder="e.g. Alex Tate" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-purple-800 text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 text-sm">
                             </div>
                             <div>
@@ -373,25 +373,41 @@
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-purple-300 mb-1" for="rsvpAdults">Number of Adults</label>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-purple-300 mb-1" for="rsvpAdults">Number of Adults (Max 10)</label>
                                 <select id="rsvpAdults" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-purple-800 text-white focus:outline-none focus:border-gold-400 text-sm">
                                     <option value="1">1 Adult</option>
                                     <option value="2">2 Adults</option>
                                     <option value="3">3 Adults</option>
-                                    <option value="4">4+ Adults</option>
+                                    <option value="4">4 Adults</option>
+                                    <option value="5">5 Adults</option>
+                                    <option value="6">6 Adults</option>
+                                    <option value="7">7 Adults</option>
+                                    <option value="8">8 Adults</option>
+                                    <option value="9">9 Adults</option>
+                                    <option value="10">10 Adults</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-purple-300 mb-1" for="rsvpKids">Number of Children</label>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-purple-300 mb-1" for="rsvpKids">Number of Children (Max 10)</label>
                                 <select id="rsvpKids" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-purple-800 text-white focus:outline-none focus:border-gold-400 text-sm">
-                                    <option value="0">0 Kids</option>
-                                    <option value="1">1 Kid</option>
-                                    <option value="2">2 Kids</option>
-                                    <option value="3">3 Kids</option>
-                                    <option value="4">4+ Kids</option>
+                                    <option value="0">0 Children</option>
+                                    <option value="1">1 Child</option>
+                                    <option value="2">2 Children</option>
+                                    <option value="3">3 Children</option>
+                                    <option value="4">4 Children</option>
+                                    <option value="5">5 Children</option>
+                                    <option value="6">6 Children</option>
+                                    <option value="7">7 Children</option>
+                                    <option value="8">8 Children</option>
+                                    <option value="9">9 Children</option>
+                                    <option value="10">10 Children</option>
                                 </select>
                             </div>
                         </div>
+
+                        <!-- Dynamic Attendee Name Fields Wrapper -->
+                        <div id="additionalAdultsContainer" class="space-y-3 pt-2"></div>
+                        <div id="additionalKidsContainer" class="space-y-3 pt-2"></div>
 
                         <div>
                             <label class="block text-xs font-bold uppercase tracking-wider text-purple-300 mb-1" for="rsvpPhone">Phone Number</label>

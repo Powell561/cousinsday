@@ -202,28 +202,115 @@ function initPotluck() {
 }
 
 /* ==========================================
-   5. RSVP FORM
+   5. DYNAMIC RSVP FORM WITH ATTENDEE NAMES
    ========================================== */
 function initRSVP() {
     const rsvpForm = document.getElementById('rsvpForm');
+    const adultsSelect = document.getElementById('rsvpAdults');
+    const kidsSelect = document.getElementById('rsvpKids');
+    const additionalAdultsContainer = document.getElementById('additionalAdultsContainer');
+    const additionalKidsContainer = document.getElementById('additionalKidsContainer');
+
     let rsvps = JSON.parse(localStorage.getItem('cousin_rsvps_2026')) || [];
+
+    function updateAdultNameFields() {
+        if (!additionalAdultsContainer || !adultsSelect) return;
+        const count = parseInt(adultsSelect.value) || 1;
+        additionalAdultsContainer.innerHTML = '';
+
+        if (count > 1) {
+            let html = `<div class="p-3 bg-purple-950/40 rounded-xl border border-purple-800/60 space-y-3">
+                <span class="text-xs font-bold uppercase tracking-wider text-gold-400 block"><i class="fa-solid fa-user-group mr-1"></i> Additional Adult Attendees</span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">`;
+
+            for (let i = 2; i <= count; i++) {
+                html += `
+                    <div>
+                        <label class="block text-[11px] font-semibold text-purple-200 mb-1" for="adult_name_${i}">Adult ${i} Full Name</label>
+                        <input type="text" id="adult_name_${i}" required placeholder="Full Name for Adult ${i}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-purple-800 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-gold-400">
+                    </div>
+                `;
+            }
+            html += `</div></div>`;
+            additionalAdultsContainer.innerHTML = html;
+        }
+    }
+
+    function updateKidsNameFields() {
+        if (!additionalKidsContainer || !kidsSelect) return;
+        const count = parseInt(kidsSelect.value) || 0;
+        additionalKidsContainer.innerHTML = '';
+
+        if (count > 0) {
+            let html = `<div class="p-3 bg-purple-950/40 rounded-xl border border-purple-800/60 space-y-3">
+                <span class="text-xs font-bold uppercase tracking-wider text-gold-400 block"><i class="fa-solid fa-child mr-1"></i> Child Attendees</span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">`;
+
+            for (let i = 1; i <= count; i++) {
+                html += `
+                    <div>
+                        <label class="block text-[11px] font-semibold text-purple-200 mb-1" for="child_name_${i}">Child ${i} Name</label>
+                        <input type="text" id="child_name_${i}" required placeholder="Name for Child ${i}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-purple-800 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-gold-400">
+                    </div>
+                `;
+            }
+            html += `</div></div>`;
+            additionalKidsContainer.innerHTML = html;
+        }
+    }
+
+    if (adultsSelect) adultsSelect.addEventListener('change', updateAdultNameFields);
+    if (kidsSelect) kidsSelect.addEventListener('change', updateKidsNameFields);
 
     if (rsvpForm) {
         rsvpForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const name = document.getElementById('rsvpName').value;
+            const primaryName = document.getElementById('rsvpName').value;
             const branch = document.getElementById('rsvpBranch').value;
-            const adults = document.getElementById('rsvpAdults').value;
-            const kids = document.getElementById('rsvpKids').value;
+            const adultsCount = parseInt(adultsSelect.value) || 1;
+            const kidsCount = parseInt(kidsSelect.value) || 0;
             const phone = document.getElementById('rsvpPhone').value;
             const note = document.getElementById('rsvpNote').value;
 
-            const entry = { name, branch, adults, kids, phone, note, date: new Date().toISOString() };
+            // Harvest adult names
+            const adultNames = [primaryName];
+            for (let i = 2; i <= adultsCount; i++) {
+                const input = document.getElementById(`adult_name_${i}`);
+                if (input && input.value.trim()) {
+                    adultNames.push(input.value.trim());
+                }
+            }
+
+            // Harvest child names
+            const childNames = [];
+            for (let i = 1; i <= kidsCount; i++) {
+                const input = document.getElementById(`child_name_${i}`);
+                if (input && input.value.trim()) {
+                    childNames.push(input.value.trim());
+                }
+            }
+
+            const entry = {
+                primaryName,
+                branch,
+                adultsCount,
+                kidsCount,
+                adultNames,
+                childNames,
+                phone,
+                note,
+                date: new Date().toISOString()
+            };
+
             rsvps.push(entry);
             localStorage.setItem('cousin_rsvps_2026', JSON.stringify(rsvps));
 
             rsvpForm.reset();
-            showToast(`RSVP Confirmed for ${name}! See you on Cousins Day! 👑`, 'fa-circle-check');
+            if (additionalAdultsContainer) additionalAdultsContainer.innerHTML = '';
+            if (additionalKidsContainer) additionalKidsContainer.innerHTML = '';
+
+            const totalCount = adultNames.length + childNames.length;
+            showToast(`RSVP Confirmed for ${primaryName} (${totalCount} Attendees)! 👑`, 'fa-circle-check');
             triggerCelebrationConfetti();
         });
     }
