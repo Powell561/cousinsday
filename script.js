@@ -49,7 +49,37 @@ function initCountdown() {
 }
 
 /* ==========================================
-   2. MOBILE MENU & CONFETTI UTILS
+   2. CASH APP COPY UTILITY
+   ========================================== */
+function copyCashtag() {
+    const cashtag = "$MyCousinsDay";
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(cashtag).then(() => {
+            showToast(`${cashtag} copied to clipboard! 📋`, 'fa-copy');
+        }).catch(() => {
+            fallbackCopy(cashtag);
+        });
+    } else {
+        fallbackCopy(cashtag);
+    }
+}
+
+function fallbackCopy(text) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+        document.execCommand('copy');
+        showToast(`${text} copied to clipboard! 📋`, 'fa-copy');
+    } catch (err) {
+        showToast(`Cashtag: ${text}`, 'fa-dollar-sign');
+    }
+    document.body.removeChild(textArea);
+}
+
+/* ==========================================
+   3. MOBILE MENU & CONFETTI UTILS
    ========================================== */
 function initMobileMenu() {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -81,7 +111,7 @@ function triggerCelebrationConfetti() {
             particleCount: 120,
             spread: 80,
             origin: { y: 0.6 },
-            colors: ['#facc15', '#a855f7', '#eab308', '#25D366', '#ffffff']
+            colors: ['#00D632', '#facc15', '#a855f7', '#eab308', '#25D366', '#ffffff']
         });
     }
 }
@@ -103,7 +133,7 @@ function showToast(message, icon = 'fa-circle-check') {
 }
 
 /* ==========================================
-   3. POTLUCK TRACKER (Clean Initial State)
+   4. POTLUCK TRACKER (Clean Initial State)
    ========================================== */
 function initPotluck() {
     let potluck = JSON.parse(localStorage.getItem('cousin_potluck_2026')) || [];
@@ -172,7 +202,7 @@ function initPotluck() {
 }
 
 /* ==========================================
-   4. RSVP FORM
+   5. RSVP FORM
    ========================================== */
 function initRSVP() {
     const rsvpForm = document.getElementById('rsvpForm');
@@ -200,7 +230,7 @@ function initRSVP() {
 }
 
 /* ==========================================
-   5. GUESTBOOK SHOUTOUTS (Clean Initial State)
+   6. GUESTBOOK SHOUTOUTS (Clean Initial State)
    ========================================== */
 function initGuestbook() {
     let shoutouts = JSON.parse(localStorage.getItem('cousin_shoutouts_2026')) || [];
